@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FinanceServiceS</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#050816;
+      color:white;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:#0b1023;
+      position:sticky;
+      top:0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#ffd700;
+    }
+
+    nav a{
+      color:white;
+      margin:0 15px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ffd700;
+    }
+
+    .hero{
+      height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      padding:20px;
+      background:
+      linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+      url('https://images.unsplash.com/photo-1640340434855-6084b1f4901c?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero h1{
+      font-size:60px;
+      max-width:900px;
+    }
+
+    .hero span{
+      color:#ffd700;
+    }
+
+    .hero p{
+      margin-top:20px;
+      font-size:20px;
+      color:#ddd;
+      max-width:700px;
+    }
+
+    .buttons{
+      margin-top:30px;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      margin:10px;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .gold{
+      background:#ffd700;
+      color:black;
+    }
+
+    .dark{
+      background:transparent;
+      border:1px solid #ffd700;
+      color:#ffd700;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    section{
+      padding:80px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:50px;
+      font-size:40px;
+      color:#ffd700;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#111827;
+      padding:30px;
+      border-radius:15px;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 20px rgba(255,215,0,0.4);
+    }
+
+    .ebook img{
+      width:100%;
+      border-radius:10px;
+    }
+
+    .ebook h3{
+      margin-top:15px;
+    }
+
+    .price{
+      color:#ffd700;
+      margin:10px 0;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+    }
+
+    form{
+      max-width:600px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input, textarea{
+      padding:15px;
+      border:none;
+      border-radius:10px;
+      background:#111827;
+      color:white;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#0b1023;
+      margin-top:50px;
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:38px;
+      }
+
+      nav{
+        display:none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">FinanceServiceS</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">E-Books</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>
+      Empower Your <span>Financial Future</span>
+      With Smart Strategies
+    </h1>
+
+    <p>
+      Learn trading, investing and build multiple income streams
+      with our premium finance services and e-books.
+    </p>
+
+    <div class="buttons">
+      <button class="btn gold">Explore E-Books</button>
+      <button class="btn dark">Our Services</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">Our Services</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Trading Education</h3>
+        <p>
+          Beginner to advanced trading strategies.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Portfolio Growth</h3>
+        <p>
+          Build long-term wealth with smart investing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Premium E-Books</h3>
+        <p>
+          Download premium finance & trading books.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+
+    <h2 class="title">Top Selling E-Books</h2>
+
+    <div class="cards">
+
+      <div class="card ebook">
+        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>The Smart Trader</h3>
+
+        <div class="price">₹499</div>
+
+        <button class="btn gold">
+          Buy Now
+        </button>
+      </div>
+
+      <div class="card ebook">
+        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Risk Management Secrets</h3>
+
+        <div class="price">₹299</div>
+
+        <button class="btn gold">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="title">About Us</h2>
+
+    <div class="about">
+
+      <div>
+        <h2>
+          We Help People Become Financially Strong
+        </h2>
+
+        <p style="margin-top:20px;color:#ccc;line-height:1.8;">
+          FinanceServiceS is a modern finance startup helping
+          people learn trading, investing and financial freedom.
+        </p>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="title">Contact Us</h2>
+
+    <form>
+
+      <input type="text" placeholder="Your Name">
+
+      <input type="email" placeholder="Your Email">
+
+      <textarea rows="5" placeholder="Message"></textarea>
+
+      <button class="btn gold">
+        Send Message
+      </button>
+
+    </form>
+
+  </section>
+
+  <footer>
+    © 2026 FinanceServiceS — All Rights Reserved
+  </footer>
+
+</body>
+</html>
