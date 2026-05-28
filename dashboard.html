@@ -1,0 +1,481 @@
+```html id="4s7n2m"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FinanceServiceS Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#020617;
+color:white;
+overflow-x:hidden;
+
+}
+
+/* BACKGROUND */
+
+.background{
+
+position:fixed;
+width:100%;
+height:100%;
+
+background:
+
+linear-gradient(rgba(0,0,0,0.8),
+rgba(0,0,0,0.85)),
+
+url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+
+z-index:-2;
+
+animation:bgZoom 20s infinite alternate;
+
+}
+
+@keyframes bgZoom{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.08);
+}
+
+}
+
+/* NAVBAR */
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:25px 8%;
+
+background:rgba(0,0,0,0.4);
+
+backdrop-filter:blur(10px);
+
+position:sticky;
+top:0;
+
+z-index:100;
+
+}
+
+.logo{
+
+font-size:32px;
+font-weight:700;
+color:#ffd700;
+
+}
+
+.user{
+
+display:flex;
+align-items:center;
+gap:20px;
+
+}
+
+.logout-btn{
+
+padding:12px 24px;
+
+border:none;
+border-radius:12px;
+
+background:#ffd700;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.logout-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 0 25px rgba(255,215,0,0.4);
+
+}
+
+/* HERO */
+
+.hero{
+
+padding:80px 8%;
+
+}
+
+.hero h1{
+
+font-size:60px;
+margin-bottom:20px;
+
+}
+
+.gold{
+color:#ffd700;
+}
+
+.hero p{
+
+color:#bbb;
+font-size:20px;
+line-height:1.8;
+
+max-width:700px;
+
+}
+
+/* CARDS */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+padding:20px 8% 80px;
+
+}
+
+.card{
+
+background:rgba(17,24,39,0.7);
+
+border:1px solid rgba(255,255,255,0.05);
+
+padding:35px;
+
+border-radius:25px;
+
+backdrop-filter:blur(15px);
+
+transition:0.4s;
+
+animation:fadeUp 1s ease;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+0 0 40px rgba(255,215,0,0.15);
+
+}
+
+.card h2{
+
+margin-bottom:20px;
+color:#ffd700;
+
+}
+
+.card p{
+
+color:#bbb;
+line-height:1.8;
+
+}
+
+/* MARKET STATS */
+
+.market{
+
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+
+}
+
+.green{
+color:#00ff66;
+}
+
+.red{
+color:#ff4d4d;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.navbar{
+padding:20px;
+}
+
+.grid{
+padding:20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<header class="navbar">
+
+<div class="logo">
+FinanceServiceS
+</div>
+
+<div class="user">
+
+<p id="userEmail">
+Loading...
+</p>
+
+<button class="logout-btn"
+onclick="logout()">
+
+Logout
+
+</button>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>
+
+Welcome to your
+<span class="gold">
+Dashboard
+</span>
+
+</h1>
+
+<p>
+
+Track your financial growth,
+access premium e-books and
+explore smart investing strategies.
+
+</p>
+
+</section>
+
+<section class="grid">
+
+<div class="card">
+
+<h2>Portfolio Growth</h2>
+
+<p>
+
+Your virtual portfolio gained
+12.4% this month.
+
+</p>
+
+<div class="market">
+
+<span class="green">
++12.4%
+</span>
+
+<span>
+This Month
+</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Premium E-Books</h2>
+
+<p>
+
+Access your purchased
+financial education library.
+
+</p>
+
+<div class="market">
+
+<span class="green">
+5 Books
+</span>
+
+<span>
+Unlocked
+</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Market Insights</h2>
+
+<p>
+
+Get updated market trends,
+analysis and smart signals.
+
+</p>
+
+<div class="market">
+
+<span class="red">
+NASDAQ -0.56%
+</span>
+
+<span>
+Live
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+
+getAuth,
+onAuthStateChanged,
+signOut
+
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyB-KEWR59T_llLlpQgrMOZkvxptX2aimlA",
+
+authDomain: "financeservices-fe23e.firebaseapp.com",
+
+projectId: "financeservices-fe23e",
+
+storageBucket: "financeservices-fe23e.firebasestorage.app",
+
+messagingSenderId: "365972966653",
+
+appId: "1:365972966653:web:6ca1cab3b9988cc0e08294",
+
+measurementId: "G-GM64KYZ197"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+/* CHECK LOGIN */
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+document.getElementById("userEmail")
+.innerText = user.email;
+
+}else{
+
+window.location.href =
+"login.html";
+
+}
+
+});
+
+/* LOGOUT */
+
+window.logout =
+function(){
+
+signOut(auth)
+
+.then(()=>{
+
+window.location.href =
+"login.html";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
+```

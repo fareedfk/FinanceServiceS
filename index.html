@@ -1,15 +1,17 @@
-```html
+```html id="p7x4n2"
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>FinanceServiceS</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
 
@@ -18,179 +20,219 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#050816;
+background:#020617;
 color:white;
 overflow-x:hidden;
+position:relative;
+}
+
+/* CURSOR GLOW */
+
+.cursor{
+
+position:fixed;
+
+width:350px;
+height:350px;
+
+background:
+radial-gradient(circle,
+rgba(255,215,0,0.15),
+transparent 70%);
+
+border-radius:50%;
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+z-index:0;
+
+transition:0.08s linear;
+
 }
 
 /* NAVBAR */
 
 .navbar{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
+
+padding:25px 8%;
+
 position:fixed;
+
 top:0;
 width:100%;
+
+background:rgba(0,0,0,0.45);
+
+backdrop-filter:blur(12px);
+
 z-index:1000;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
+
 }
 
 .logo{
-font-size:30px;
+
+font-size:32px;
 font-weight:700;
 color:#ffd700;
+
 }
 
 nav{
+
 display:flex;
 gap:30px;
+
 }
 
 nav a{
+
 text-decoration:none;
 color:white;
+
 font-weight:500;
+
 transition:0.3s;
+
 }
 
 nav a:hover{
 color:#ffd700;
 }
 
-.right-nav{
-display:flex;
-align-items:center;
-gap:20px;
-}
-
-/* SWITCH */
-
-.switch{
-position:relative;
-display:inline-block;
-width:60px;
-height:32px;
-}
-
-.switch input{
-opacity:0;
-width:0;
-height:0;
-}
-
-.slider{
-position:absolute;
-cursor:pointer;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:#333;
-transition:.4s;
-border-radius:34px;
-}
-
-.slider:before{
-position:absolute;
-content:"";
-height:24px;
-width:24px;
-left:4px;
-bottom:4px;
-background:white;
-transition:.4s;
-border-radius:50%;
-}
-
-input:checked + .slider{
-background:#ffd700;
-}
-
-input:checked + .slider:before{
-transform:translateX(28px);
-}
-
 /* HERO */
 
 .hero{
+
 height:100vh;
+
 display:flex;
 align-items:center;
+
 padding:0 8%;
+
 background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+
+linear-gradient(rgba(0,0,0,0.7),
+rgba(0,0,0,0.8)),
+
 url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
+
+position:relative;
+
 }
 
 .hero-content{
-max-width:700px;
+
+max-width:750px;
+
+animation:fadeUp 1.2s ease;
+
 }
 
 .hero h1{
-font-size:72px;
+
+font-size:78px;
 line-height:1.1;
+
 margin-bottom:25px;
+
 }
 
-.hero span{
+.gold{
 color:#ffd700;
 }
 
 .hero p{
+
 font-size:20px;
-color:#ccc;
 line-height:1.8;
+
+color:#ccc;
+
 margin-bottom:40px;
+
 }
 
 .hero-buttons{
+
 display:flex;
 gap:20px;
+
 }
 
 .btn{
-padding:16px 35px;
+
+padding:18px 38px;
+
 border:none;
-border-radius:12px;
+border-radius:15px;
+
 font-size:16px;
 font-weight:600;
+
 cursor:pointer;
+
 transition:0.4s;
+
 }
 
 .gold-btn{
+
 background:#ffd700;
 color:black;
+
 }
 
 .outline-btn{
+
 background:transparent;
+
 border:1px solid #ffd700;
+
 color:#ffd700;
+
 }
 
 .btn:hover{
+
 transform:translateY(-5px);
+
+box-shadow:
+0 0 30px rgba(255,215,0,0.25);
+
 }
 
-/* SECTION */
+/* SECTIONS */
 
 section{
-padding:100px 8%;
+
+padding:120px 8%;
+
+position:relative;
+z-index:2;
+
 }
 
 .section-title{
+
+font-size:52px;
 text-align:center;
-font-size:48px;
+
 margin-bottom:70px;
+
 }
 
 .section-title span{
@@ -200,189 +242,237 @@ color:#ffd700;
 /* SERVICES */
 
 .services-grid{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
 gap:30px;
+
 }
 
 .service-card{
-background:#111827;
-padding:40px 30px;
-border-radius:20px;
-transition:0.4s;
+
+background:rgba(17,24,39,0.75);
+
+padding:40px;
+
+border-radius:25px;
+
 border:1px solid rgba(255,255,255,0.05);
+
+backdrop-filter:blur(10px);
+
+transition:0.4s;
+
 }
 
 .service-card:hover{
+
 transform:translateY(-10px);
-box-shadow:0 0 30px rgba(255,215,0,0.15);
+
+box-shadow:
+0 0 40px rgba(255,215,0,0.15);
+
 }
 
 .service-card h3{
-margin:20px 0;
-font-size:24px;
+
+margin-bottom:20px;
+
+font-size:28px;
+
+color:#ffd700;
+
 }
 
 .service-card p{
+
 color:#bbb;
 line-height:1.8;
+
 }
 
 /* EBOOKS */
 
 .ebook-grid{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:35px;
+
 }
 
 .ebook-card{
-background:#111827;
-border-radius:20px;
+
+background:rgba(17,24,39,0.75);
+
+border-radius:25px;
+
 overflow:hidden;
+
+border:1px solid rgba(255,255,255,0.05);
+
+backdrop-filter:blur(10px);
+
 transition:0.4s;
+
 }
 
 .ebook-card:hover{
+
 transform:translateY(-10px);
+
+box-shadow:
+0 0 40px rgba(255,215,0,0.15);
+
 }
 
 .ebook-card img{
+
 width:100%;
-height:300px;
+height:320px;
+
 object-fit:cover;
+
 }
 
 .ebook-content{
-padding:25px;
+padding:30px;
+}
+
+.ebook-content h3{
+
+margin-bottom:15px;
+font-size:26px;
+
+}
+
+.ebook-content p{
+
+color:#bbb;
+line-height:1.8;
+
+margin-bottom:20px;
+
 }
 
 .price{
+
+font-size:28px;
 color:#ffd700;
-font-size:24px;
-margin:15px 0;
+
+margin-bottom:20px;
+
 }
 
-/* TESTIMONIALS */
+/* COMMENTS */
 
-.testimonials{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
+.comment-box{
+
+background:rgba(17,24,39,0.75);
+
+padding:40px;
+
+border-radius:25px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.comment-box input,
+.comment-box textarea{
+
+width:100%;
+
+padding:18px;
+
+margin-bottom:20px;
+
+border:none;
+
+border-radius:15px;
+
+background:#1f2937;
+
+color:white;
+
+font-size:16px;
+
+outline:none;
+
+}
+
+.comment-box textarea{
+
+height:140px;
+resize:none;
+
 }
 
 .testimonial{
-background:#111827;
-padding:35px;
-border-radius:20px;
-}
 
-.testimonial h3{
-color:#ffd700;
+background:rgba(17,24,39,0.75);
+
+padding:30px;
+
+border-radius:20px;
+
 margin-top:20px;
+
 }
 
 /* FOOTER */
- 
+
 footer{
-background:#020617;
-padding:60px 8%;
+
+padding:50px 8%;
+
+background:#01040f;
+
 text-align:center;
+
+}
+
+footer h2{
+
+font-size:36px;
+
+margin-bottom:20px;
+
+color:#ffd700;
+
 }
 
 footer p{
 color:#aaa;
-margin-top:15px;
 }
 
-/* LIGHT MODE */
-
-.light-mode{
-background:#f5f5f5;
-color:black;
-}
-
-.light-mode .navbar{
-background:rgba(255,255,255,0.8);
-}
-
-.light-mode nav a{
-color:black;
-}
-
-.light-mode .hero{
-background:
-linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),
-url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
-}
-
-.light-mode .hero h1{
-color:black;
-}
-
-.light-mode .hero p{
-color:#222;
-}
-
-.light-mode .service-card,
-.light-mode .ebook-card,
-.light-mode .testimonial{
-background:white;
-color:black;
-}
-
-.light-mode .service-card p{
-color:#333;
-}
-
-.light-mode footer{
-background:#e5e5e5;
-color:black;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:42px;
-}
-
-nav{
-display:none;
-}
-
-.hero-buttons{
-flex-direction:column;
-}
-
-.section-title{
-font-size:36px;
-}
-
-}
-/* SCROLL ANIMATIONS */
+/* ANIMATIONS */
 
 .reveal{
+
 opacity:0;
-transform:translateY(80px);
-transition:all 1s ease;
+
+transform:translateY(60px);
+
+transition:1s;
+
 }
 
 .reveal.active{
+
 opacity:1;
+
 transform:translateY(0);
+
 }
 
-/* HERO ANIMATION */
-
-.hero-content{
-animation:heroFade 1.5s ease;
-}
-
-@keyframes heroFade{
+@keyframes fadeUp{
 
 from{
 opacity:0;
@@ -396,68 +486,71 @@ transform:translateY(0);
 
 }
 
-/* CARD HOVER */
+/* LIGHT MODE */
 
-.service-card,
-.ebook-card,
-.testimonial{
-transition:0.4s ease;
+.light-mode{
+
+background:#f5f5f5;
+color:black;
+
 }
 
-.service-card:hover,
-.ebook-card:hover,
-.testimonial:hover{
-transform:translateY(-12px) scale(1.02);
-box-shadow:0 0 40px rgba(255,215,0,0.2);
-}
-/* CURSOR GLOW */
+.light-mode .navbar{
 
-.cursor-glow{
-position:fixed;
-width:300px;
-height:300px;
-background:radial-gradient(circle,
-rgba(255,215,0,0.15),
-transparent 70%);
-border-radius:50%;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:0;
-transition:transform 0.08s linear;
+background:rgba(255,255,255,0.8);
+
 }
 
-/* BETTER EBOOK CARDS */
-
-.ebook-card{
-position:relative;
-overflow:hidden;
+.light-mode nav a{
+color:black;
 }
 
-.ebook-card::before{
-content:'';
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,0.1),
-transparent
-);
+.light-mode .service-card,
+.light-mode .ebook-card,
+.light-mode .comment-box,
+.light-mode .testimonial{
 
-transition:0.8s;
+background:white;
+color:black;
+
 }
 
-.ebook-card:hover::before{
-left:100%;
+.light-mode .service-card p,
+.light-mode .ebook-content p{
+
+color:#333;
+
 }
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:48px;
+}
+
+nav{
+display:none;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.section-title{
+font-size:38px;
+}
+
+}
+
 </style>
 
 </head>
 
-<body><div class="cursor-glow"></div>
+<body>
+
+<div class="cursor"></div>
 
 <header class="navbar">
 
@@ -468,24 +561,12 @@ FinanceServiceS
 <nav>
 
 <a href="#">Home</a>
-<a href="#">About</a>
 <a href="#">Services</a>
-<a href="#">E-Books</a>
-<a href="#">Contact</a>
+<a href="#">Ebooks</a>
+<a href="#">Comments</a>
+<a href="login.html">Login</a>
 
 </nav>
-
-<div class="right-nav">
-
-<label class="switch">
-
-<input type="checkbox" id="themeSwitch">
-
-<span class="slider"></span>
-
-</label>
-
-</div>
 
 </header>
 
@@ -494,24 +575,35 @@ FinanceServiceS
 <div class="hero-content">
 
 <h1>
+
 Empower Your
-<span>Financial Future</span>
-With Smart Strategies
+<span class="gold">
+
+Financial Future
+
+</span>
+
 </h1>
 
 <p>
-Learn trading, investing and wealth building with
-premium finance education and modern financial tools.
+
+Learn trading, investing and wealth building
+with premium financial education.
+
 </p>
 
 <div class="hero-buttons">
 
 <button class="btn gold-btn">
-Explore Services
+
+Get Started
+
 </button>
 
 <button class="btn outline-btn">
-Browse E-Books
+
+Explore Ebooks
+
 </button>
 
 </div>
@@ -523,7 +615,9 @@ Browse E-Books
 <section class="reveal">
 
 <h2 class="section-title">
+
 Our <span>Services</span>
+
 </h2>
 
 <div class="services-grid">
@@ -533,18 +627,23 @@ Our <span>Services</span>
 <h3>Trading Education</h3>
 
 <p>
-Master trading psychology, chart analysis and
-professional strategies.
+
+Master smart trading strategies and
+professional market analysis.
+
 </p>
 
 </div>
 
 <div class="service-card">
 
-<h3>Investment Guidance</h3>
+<h3>Investment Planning</h3>
 
 <p>
-Build long-term wealth using smart financial planning.
+
+Build long-term wealth through
+strategic investing.
+
 </p>
 
 </div>
@@ -554,7 +653,10 @@ Build long-term wealth using smart financial planning.
 <h3>Financial Freedom</h3>
 
 <p>
-Learn systems and methods to grow multiple income streams.
+
+Learn systems to create multiple
+income streams.
+
 </p>
 
 </div>
@@ -566,128 +668,38 @@ Learn systems and methods to grow multiple income streams.
 <section class="reveal">
 
 <h2 class="section-title">
-Premium <span>E-Books</span>
+
+Premium <span>Ebooks</span>
+
 </h2>
 
-<div class="ebook-grid">
-
-<div class="ebook-card">
-
-<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop">
-
-<div class="ebook-content">
-
-<h3>Trading Mastery</h3>
-
-<p>Complete trading roadmap for beginners.</p>
-
-<div class="price">
-₹499
-</div>
-
-<button class="btn gold-btn">
-Buy Now
-</button>
-
-</div>
-
-</div>
-
-<div class="ebook-card">
-
-<img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop">
-
-<div class="ebook-content">
-
-<h3>Investing For Wealth</h3>
-
-<p>Learn wealth building and smart investing.</p>
-
-<div class="price">
-₹299
-</div>
-
-<button class="btn gold-btn">
-Buy Now
-</button>
-
-</div>
-
-</div>
+<div class="ebook-grid"
+id="ebookGrid">
 
 </div>
 
 </section>
 
-<section>
-
-<h2 class="section-title">
-Client <span>Testimonials</span>
-</h2>
-
-<div class="testimonials">
-
-<div class="testimonial">
-
-<p>
-“FinanceServiceS completely changed my understanding
-of trading and investing.”
-</p>
-
-<h3>
-— Rahul Sharma
-</h3>
-
-</div>
-
-<div class="testimonial">
-
-<p>
-“Premium quality finance education with a modern experience.”
-</p>
-
-<h3>
-— Ahmed Khan
-</h3>
-
-</div>
-
-<div class="testimonial">
-
-<p>
-“Simple strategies with practical implementation.”
-</p>
-
-<h3>
-— Priya Verma
-</h3>
-
-</div>
-
-</div>
-
-</section>
 <section class="reveal">
 
 <h2 class="section-title">
+
 Community <span>Comments</span>
+
 </h2>
 
-<div class="testimonial">
+<div class="comment-box">
 
 <input type="text"
 id="nameInput"
-placeholder="Your Name"
-style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:none;">
+placeholder="Your Name">
 
 <textarea
 id="commentInput"
-placeholder="Write your comment..."
-style="width:100%;padding:15px;height:120px;border-radius:10px;border:none;"></textarea>
+placeholder="Write your comment..."></textarea>
 
 <button class="btn gold-btn"
-onclick="addComment()"
-style="margin-top:20px;">
+onclick="addComment()">
 
 Post Comment
 
@@ -695,10 +707,10 @@ Post Comment
 
 </div>
 
-<div id="commentList"
-style="margin-top:40px;"></div>
+<div id="commentList"></div>
 
 </section>
+
 <footer>
 
 <h2>
@@ -706,29 +718,28 @@ FinanceServiceS
 </h2>
 
 <p>
-Empowering financial growth through modern education.
+
+Modern finance education platform.
+
 </p>
 
 </footer>
-```html id="jlwm9q"
-<script type="module">
 
-/* FIREBASE */
+<script type="module">
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
+
 getFirestore,
 collection,
 addDoc,
-getDocs,
-query,
-orderBy
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+getDocs
 
-/* FIREBASE CONFIG */
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
 
@@ -748,34 +759,21 @@ measurementId: "G-GM64KYZ197"
 
 };
 
-/* INITIALIZE */
-
 const app =
 initializeApp(firebaseConfig);
 
 const db =
 getFirestore(app);
 
-/* THEME SWITCH */
+/* CURSOR */
 
-const themeSwitch =
-document.getElementById("themeSwitch");
+const cursor =
+document.querySelector(".cursor");
 
-themeSwitch.addEventListener("change", () => {
+document.addEventListener("mousemove",(e)=>{
 
-document.body.classList.toggle("light-mode");
-
-});
-
-/* CURSOR GLOW */
-
-const glow =
-document.querySelector(".cursor-glow");
-
-document.addEventListener("mousemove", (e)=>{
-
-glow.style.left = e.clientX + "px";
-glow.style.top = e.clientY + "px";
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
 
 });
 
@@ -784,9 +782,9 @@ glow.style.top = e.clientY + "px";
 const reveals =
 document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-reveals.forEach((element) => {
+reveals.forEach((element)=>{
 
 const windowHeight =
 window.innerHeight;
@@ -806,7 +804,62 @@ element.classList.add("active");
 
 });
 
-/* FIREBASE COMMENTS */
+/* LOAD EBOOKS */
+
+async function loadEbooks(){
+
+const ebookGrid =
+document.getElementById("ebookGrid");
+
+ebookGrid.innerHTML = '';
+
+const querySnapshot =
+await getDocs(collection(db,"ebooks"));
+
+querySnapshot.forEach((doc)=>{
+
+const data = doc.data();
+
+const card =
+document.createElement("div");
+
+card.classList.add("ebook-card");
+
+card.innerHTML = `
+
+<img src="${data.image}">
+
+<div class="ebook-content">
+
+<h3>${data.title}</h3>
+
+<p>${data.description}</p>
+
+<div class="price">
+
+₹${data.price}
+
+</div>
+
+<button class="btn gold-btn">
+
+Buy Now
+
+</button>
+
+</div>
+
+`;
+
+ebookGrid.appendChild(card);
+
+});
+
+}
+
+loadEbooks();
+
+/* COMMENTS */
 
 async function loadComments(){
 
@@ -815,38 +868,37 @@ document.getElementById("commentList");
 
 commentList.innerHTML = '';
 
-const q =
-query(collection(db, "comments"));
-
 const querySnapshot =
-await getDocs(q);
+await getDocs(collection(db,"comments"));
 
-querySnapshot.forEach((doc) => {
+querySnapshot.forEach((doc)=>{
 
 const data = doc.data();
 
-const commentBox =
+const comment =
 document.createElement("div");
 
-commentBox.classList.add("testimonial");
+comment.classList.add("testimonial");
 
-commentBox.style.marginTop = "20px";
-
-commentBox.innerHTML = `
+comment.innerHTML = `
 
 <p>${data.comment}</p>
 
-<h3>— ${data.name}</h3>
+<h3 style="margin-top:20px;color:#ffd700;">
+
+— ${data.name}
+
+</h3>
 
 `;
 
-commentList.appendChild(commentBox);
+commentList.appendChild(comment);
 
 });
 
 }
 
-/* ADD COMMENT */
+loadComments();
 
 window.addComment =
 async function(){
@@ -865,28 +917,23 @@ return;
 
 }
 
-await addDoc(collection(db, "comments"), {
+await addDoc(collection(db,"comments"),{
 
-name:name,
-comment:comment
+name,
+comment
 
 });
 
 document.getElementById("nameInput").value='';
-
 document.getElementById("commentInput").value='';
 
 loadComments();
 
 }
 
-/* LOAD COMMENTS */
-
-loadComments();
-
 </script>
-```
 
 </body>
+
 </html>
 ```

@@ -1,0 +1,640 @@
+```html id="n4k9xp"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FinanceServiceS Admin Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:#020617;
+
+position:relative;
+
+color:white;
+
+}
+
+/* BACKGROUND */
+
+.background{
+
+position:absolute;
+width:100%;
+height:100%;
+
+background:
+
+linear-gradient(rgba(0,0,0,0.75),
+rgba(0,0,0,0.85)),
+
+url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+
+animation:bgZoom 18s infinite alternate;
+
+z-index:-3;
+
+}
+
+@keyframes bgZoom{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.08);
+}
+
+}
+
+/* CURSOR GLOW */
+
+.cursor{
+
+position:fixed;
+
+width:350px;
+height:350px;
+
+background:
+radial-gradient(circle,
+rgba(255,215,0,0.18),
+transparent 70%);
+
+border-radius:50%;
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+z-index:-1;
+
+transition:0.08s linear;
+
+}
+
+/* GRID */
+
+.grid{
+
+position:absolute;
+width:100%;
+height:100%;
+
+background-image:
+linear-gradient(rgba(255,215,0,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,215,0,0.04) 1px, transparent 1px);
+
+background-size:60px 60px;
+
+z-index:-2;
+
+}
+
+/* FLOATING LIGHTS */
+
+.light{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(100px);
+
+opacity:0.25;
+
+animation:floatLight 10s infinite alternate;
+
+}
+
+.light1{
+
+width:300px;
+height:300px;
+
+background:#ffd700;
+
+top:-100px;
+left:-100px;
+
+}
+
+.light2{
+
+width:250px;
+height:250px;
+
+background:#00ffcc;
+
+bottom:-100px;
+right:-100px;
+
+animation-delay:2s;
+
+}
+
+@keyframes floatLight{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(50px);
+}
+
+}
+
+/* FLOATING MARKET CARDS */
+
+.market-card{
+
+position:absolute;
+
+padding:25px;
+
+background:rgba(0,0,0,0.35);
+
+border:1px solid rgba(255,255,255,0.08);
+
+border-radius:25px;
+
+backdrop-filter:blur(10px);
+
+animation:floatCard 5s infinite alternate;
+
+}
+
+.market-card h3{
+
+font-size:34px;
+margin-top:10px;
+
+}
+
+.green{
+color:#00ff66;
+}
+
+.red{
+color:#ff4d4d;
+}
+
+.card1{
+top:12%;
+left:4%;
+}
+
+.card2{
+top:12%;
+right:5%;
+animation-delay:2s;
+}
+
+.card3{
+bottom:10%;
+right:8%;
+animation-delay:1s;
+}
+
+@keyframes floatCard{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(18px);
+}
+
+}
+
+/* PANEL */
+
+.panel{
+
+width:700px;
+
+padding:50px;
+
+border-radius:35px;
+
+background:rgba(10,15,30,0.75);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,215,0,0.25);
+
+box-shadow:
+0 0 60px rgba(255,215,0,0.12);
+
+position:relative;
+
+animation:fadeUp 1.2s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* TITLE */
+
+.logo{
+
+font-size:50px;
+text-align:center;
+margin-bottom:10px;
+
+}
+
+h1{
+
+text-align:center;
+
+font-size:60px;
+
+margin-bottom:10px;
+
+}
+
+.gold{
+color:#ffd700;
+}
+
+.subtitle{
+
+text-align:center;
+
+color:#aaa;
+
+margin-bottom:40px;
+
+font-size:18px;
+
+}
+
+/* INPUTS */
+
+.input-box{
+
+margin-bottom:25px;
+
+}
+
+.input-box input,
+.input-box textarea{
+
+width:100%;
+
+padding:20px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+background:rgba(255,255,255,0.04);
+
+color:white;
+
+font-size:16px;
+
+outline:none;
+
+transition:0.3s;
+
+}
+
+.input-box input:focus,
+.input-box textarea:focus{
+
+border:1px solid #ffd700;
+
+box-shadow:
+0 0 25px rgba(255,215,0,0.15);
+
+}
+
+textarea{
+
+height:160px;
+resize:none;
+
+}
+
+/* BUTTON */
+
+button{
+
+width:100%;
+
+padding:20px;
+
+border:none;
+border-radius:18px;
+
+background:#ffd700;
+
+font-size:20px;
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.4s;
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 35px rgba(255,215,0,0.4);
+
+}
+
+/* STATUS */
+
+#status{
+
+text-align:center;
+
+margin-top:25px;
+
+color:#00ff66;
+
+font-size:18px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.panel{
+
+width:90%;
+padding:35px;
+
+}
+
+.market-card{
+display:none;
+}
+
+h1{
+font-size:42px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="grid"></div>
+
+<div class="cursor"></div>
+
+<div class="light light1"></div>
+<div class="light light2"></div>
+
+<div class="market-card card1">
+
+<p>BTC/USDT</p>
+
+<h3 class="green">
++2.35%
+</h3>
+
+</div>
+
+<div class="market-card card2">
+
+<p>ETH/USDT</p>
+
+<h3 class="green">
++1.45%
+</h3>
+
+</div>
+
+<div class="market-card card3">
+
+<p>NASDAQ</p>
+
+<h3 class="red">
+-0.56%
+</h3>
+
+</div>
+
+<div class="panel">
+
+<div class="logo">
+🛡️
+</div>
+
+<h1>
+
+Admin <span class="gold">
+Panel
+</span>
+
+</h1>
+
+<p class="subtitle">
+
+Manage your eBooks and platform content
+
+</p>
+
+<div class="input-box">
+
+<input type="text"
+id="title"
+placeholder="Ebook Title">
+
+</div>
+
+<div class="input-box">
+
+<textarea
+id="description"
+placeholder="Ebook Description"></textarea>
+
+</div>
+
+<div class="input-box">
+
+<input type="text"
+id="price"
+placeholder="Price">
+
+</div>
+
+<div class="input-box">
+
+<input type="text"
+id="image"
+placeholder="Cover Image URL">
+
+</div>
+
+<button onclick="addEbook()">
+
++ Add Ebook
+
+</button>
+
+<p id="status"></p>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+
+getFirestore,
+collection,
+addDoc
+
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyB-KEWR59T_llLlpQgrMOZkvxptX2aimlA",
+
+authDomain: "financeservices-fe23e.firebaseapp.com",
+
+projectId: "financeservices-fe23e",
+
+storageBucket: "financeservices-fe23e.firebasestorage.app",
+
+messagingSenderId: "365972966653",
+
+appId: "1:365972966653:web:6ca1cab3b9988cc0e08294",
+
+measurementId: "G-GM64KYZ197"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+/* CURSOR GLOW */
+
+const cursor =
+document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
+});
+
+/* ADD EBOOK */
+
+window.addEbook =
+async function(){
+
+const title =
+document.getElementById("title").value;
+
+const description =
+document.getElementById("description").value;
+
+const price =
+document.getElementById("price").value;
+
+const image =
+document.getElementById("image").value;
+
+if(
+title === '' ||
+description === '' ||
+price === '' ||
+image === ''
+){
+
+alert("Fill all fields");
+
+return;
+
+}
+
+await addDoc(collection(db,"ebooks"),{
+
+title,
+description,
+price,
+image
+
+});
+
+document.getElementById("status")
+.innerText = "Ebook Added Successfully";
+
+document.getElementById("title").value='';
+document.getElementById("description").value='';
+document.getElementById("price").value='';
+document.getElementById("image").value='';
+
+}
+
+</script>
+
+</body>
+</html>
+```
