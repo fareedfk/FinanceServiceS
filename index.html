@@ -192,25 +192,137 @@
         display:none;
       }
     }
+html{
+  scroll-behavior:smooth;
+}
 
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  background:rgba(11,16,35,0.7);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.theme-toggle{
+  background:#ffd700;
+  border:none;
+  padding:10px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.menu-btn{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.light-mode{
+  background:white;
+  color:black;
+}
+
+.light-mode .card{
+  background:#f3f3f3;
+  color:black;
+}
+
+.light-mode header{
+  background:white;
+}
+
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  font-size:28px;
+  text-decoration:none;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+footer{
+  background:#020617;
+  padding:50px 20px;
+  text-align:center;
+}
+
+@media(max-width:768px){
+
+  nav{
+    position:absolute;
+    top:80px;
+    right:0;
+    background:#111827;
+    width:220px;
+    display:none;
+    flex-direction:column;
+    padding:20px;
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  nav a{
+    margin:15px 0;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+}
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">FinanceServiceS</div>
+  <header class="navbar">
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">E-Books</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+  <div class="logo">
+    FinanceServiceS
+  </div>
 
+  <nav id="navMenu">
+
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">E-Books</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+
+  </nav>
+
+  <div class="nav-right">
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+      🌙
+    </button>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </div>
+
+  </div>
+
+</header>
   <section class="hero">
     <h1>
       Empower Your <span>Financial Future</span>
@@ -333,10 +445,26 @@
     </form>
 
   </section>
-
+<a href="https://wa.me/911234567890"
+class="whatsapp">
+  💬
+</a>
   <footer>
     © 2026 FinanceServiceS — All Rights Reserved
   </footer>
+<script>
 
+function toggleMenu(){
+  document.getElementById("navMenu")
+  .classList.toggle("active");
+}
+
+function toggleTheme(){
+  document.body.classList.toggle("light-mode");
+}
+
+</script>
+
+</body>
 </body>
 </html>
