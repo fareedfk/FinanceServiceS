@@ -363,6 +363,53 @@ font-size:36px;
 }
 
 }
+/* SCROLL ANIMATIONS */
+
+.reveal{
+opacity:0;
+transform:translateY(80px);
+transition:all 1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* HERO ANIMATION */
+
+.hero-content{
+animation:heroFade 1.5s ease;
+}
+
+@keyframes heroFade{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* CARD HOVER */
+
+.service-card,
+.ebook-card,
+.testimonial{
+transition:0.4s ease;
+}
+
+.service-card:hover,
+.ebook-card:hover,
+.testimonial:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 0 40px rgba(255,215,0,0.2);
+}
 
 </style>
 
@@ -431,7 +478,7 @@ Browse E-Books
 
 </section>
 
-<section>
+<section class="reveal">
 
 <h2 class="section-title">
 Our <span>Services</span>
@@ -474,7 +521,7 @@ Learn systems and methods to grow multiple income streams.
 
 </section>
 
-<section>
+<section class="reveal">
 
 <h2 class="section-title">
 Premium <span>E-Books</span>
@@ -601,6 +648,30 @@ themeSwitch.addEventListener("change", () => {
 document.body.classList.toggle("light-mode");
 
 });
+const reveals =
+document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+
+reveals.forEach((element) => {
+
+const windowHeight =
+window.innerHeight;
+
+const revealTop =
+element.getBoundingClientRect().top;
+
+const revealPoint = 120;
+
+if(revealTop < windowHeight - revealPoint){
+
+element.classList.add("active");
+
+}
+
+});
+
+});     
 
 </script>
 
