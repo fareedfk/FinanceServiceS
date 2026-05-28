@@ -1,713 +1,609 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FinanceServiceS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+<title>FinanceServiceS</title>
 
-    body{
-      background:#050816;
-      color:white;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 8%;
-      background:#0b1023;
-      position:sticky;
-      top:0;
-    }
+<style>
 
-    .logo{
-      font-size:28px;
-      font-weight:bold;
-      color:#ffd700;
-    }
-
-    nav a{
-      color:white;
-      margin:0 15px;
-      text-decoration:none;
-      transition:0.3s;
-    }
-
-    nav a:hover{
-      color:#ffd700;
-    }
-
-    .hero{
-      height:90vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      text-align:center;
-      padding:20px;
-      background:
-      linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-      url('https://images.unsplash.com/photo-1640340434855-6084b1f4901c?q=80&w=1600&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-    }
-
-    .hero h1{
-      font-size:60px;
-      max-width:900px;
-      color:white;
-    }
-
-    .hero span{
-      color:#ffd700;
-    }
-
-    .hero p{
-      margin-top:20px;
-      font-size:20px;
-      color:#ddd;
-      max-width:700px;
-    }
-
-    .buttons{
-      margin-top:30px;
-    }
-
-    .btn{
-      padding:14px 30px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      margin:10px;
-      font-size:16px;
-      transition:0.3s;
-    }
-
-    .gold{
-      background:#ffd700;
-      color:black;
-    }
-
-    .dark{
-      background:transparent;
-      border:1px solid #ffd700;
-      color:#ffd700;
-    }
-
-    .btn:hover{
-      transform:scale(1.05);
-    }
-
-    section{
-      padding:80px 8%;
-    }
-
-    .title{
-      text-align:center;
-      margin-bottom:50px;
-      font-size:40px;
-      color:#ffd700;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:#111827;
-      padding:30px;
-      border-radius:15px;
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 0 20px rgba(255,215,0,0.4);
-    }
-
-    .ebook img{
-      width:100%;
-      border-radius:10px;
-    }
-
-    .ebook h3{
-      margin-top:15px;
-    }
-
-    .price{
-      color:#ffd700;
-      margin:10px 0;
-    }
-
-    .about{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:40px;
-      align-items:center;
-    }
-
-    .about img{
-      width:100%;
-      border-radius:20px;
-    }
-
-    form{
-      max-width:600px;
-      margin:auto;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-    }
-
-    input, textarea{
-      padding:15px;
-      border:none;
-      border-radius:10px;
-      background:#111827;
-      color:white;
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      background:#0b1023;
-      margin-top:50px;
-    }
-
-    @media(max-width:768px){
-      .hero h1{
-        font-size:38px;
-      }
-
-      nav{
-        display:none;
-      }
-    }
-html{
-  scroll-behavior:smooth;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
 
 .navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 8%;
-  background:rgba(11,16,35,0.7);
-  backdrop-filter:blur(10px);
-  position:sticky;
-  top:0;
-  z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
 }
 
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:15px;
+.logo{
+font-size:30px;
+font-weight:700;
+color:#ffd700;
 }
 
-.theme-toggle{
-  background:#ffd700;
-  border:none;
-  padding:10px 14px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:18px;
+nav{
+display:flex;
+gap:30px;
 }
 
-.menu-btn{
-  display:none;
-  font-size:30px;
-  cursor:pointer;
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
 }
 
-.light-mode{
-  background:white;
-  color:black;
+nav a:hover{
+color:#ffd700;
 }
 
-.light-mode .card{
-  background:#f3f3f3;
-  color:black;
+.right-nav{
+display:flex;
+align-items:center;
+gap:20px;
 }
 
-.light-mode header{
-  background:white;
-}
-
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px 18px;
-  border-radius:50%;
-  font-size:28px;
-  text-decoration:none;
-  box-shadow:0 0 15px rgba(0,0,0,0.3);
-}
-
-footer{
-  background:#020617;
-  padding:50px 20px;
-  text-align:center;
-}
-
-@media(max-width:768px){
-
-  nav{
-    position:absolute;
-    top:80px;
-    right:0;
-    background:#111827;
-    width:220px;
-    display:none;
-    flex-direction:column;
-    padding:20px;
-  }
-
-  nav.active{
-    display:flex;
-  }
-
-  nav a{
-    margin:15px 0;
-  }
-
-  .menu-btn{
-    display:block;
-  }
-
-}/* THEME SWITCH */
+/* SWITCH */
 
 .switch{
-  position:relative;
-  display:inline-block;
-  width:60px;
-  height:32px;
+position:relative;
+display:inline-block;
+width:60px;
+height:32px;
 }
 
 .switch input{
-  opacity:0;
-  width:0;
-  height:0;
+opacity:0;
+width:0;
+height:0;
 }
 
 .slider{
-  position:absolute;
-  cursor:pointer;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background:#444;
-  transition:.4s;
-  border-radius:34px;
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#333;
+transition:.4s;
+border-radius:34px;
 }
 
 .slider:before{
-  position:absolute;
-  content:"";
-  height:24px;
-  width:24px;
-  left:4px;
-  bottom:4px;
-  background:white;
-  transition:.4s;
-  border-radius:50%;
+position:absolute;
+content:"";
+height:24px;
+width:24px;
+left:4px;
+bottom:4px;
+background:white;
+transition:.4s;
+border-radius:50%;
 }
 
 input:checked + .slider{
-  background:#ffd700;
+background:#ffd700;
 }
 
 input:checked + .slider:before{
-  transform:translateX(28px);
+transform:translateX(28px);
 }
 
-/* LIGHT MODE FIXES */
+/* HERO */
 
-.light-mode{
-  background:#f5f5f5;
-  color:black;
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+padding:0 8%;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
 }
 
-.light-mode .navbar{
-  background:rgba(255,255,255,0.9);
-}
-
-.light-mode nav a{
-  color:black;
-}
-
-.light-mode nav a:hover{
-  color:#c59d00;
-}
-
-.light-mode .hero p{
-  color:#222;
-}
-
-.light-mode .card{
-  background:white;
-  color:black;
-}
-
-.light-mode input,
-.light-mode textarea{
-  background:white;
-  color:black;
-  border:1px solid #ccc;
-}
-
-.light-mode footer{
-  background:#eaeaea;
-  color:black;
-}
-
-.light-mode .logo{
-  color:#c59d00;
-}
-
-.light-mode .title{
-  color:#c59d00;
-}
-
-.light-mode .price{
-  color:#c59d00;
-}/* HERO LIGHT MODE FIX */
-
-.light-mode .hero{
-  background:
-  linear-gradient(rgba(255,255,255,0.5),
-  rgba(255,255,255,0.5)),
-  url('https://images.unsplash.com/photo-1640340434855-6084b1f4901c?q=80&w=1600&auto=format&fit=crop');
-  
-  background-size:cover;
-  background-position:center;
-}
-
-.light-mode .hero h1{
-  color:#111;
-}
-
-.light-mode .hero p{
-  color:#222;
-}/* ANIMATIONS */
-
-.fade-up{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1s ease;
-}
-
-.fade-up.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.card{
-  transition:0.4s ease;
-}
-
-.card:hover{
-  transform:translateY(-12px) scale(1.02);
-  box-shadow:0 0 30px rgba(255,215,0,0.35);
-}
-
-.btn{
-  transition:0.4s;
-}
-
-.btn:hover{
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:0 0 20px rgba(255,215,0,0.5);
+.hero-content{
+max-width:700px;
 }
 
 .hero h1{
-  animation:fadeHero 1.5s ease;
+font-size:72px;
+line-height:1.1;
+margin-bottom:25px;
+}
+
+.hero span{
+color:#ffd700;
 }
 
 .hero p{
-  animation:fadeHero 2s ease;
+font-size:20px;
+color:#ccc;
+line-height:1.8;
+margin-bottom:40px;
 }
 
-@keyframes fadeHero{
-
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-}/* TESTIMONIALS */
-
-.card p{
-  line-height:1.8;
-  color:#ccc;
+.hero-buttons{
+display:flex;
+gap:20px;
 }
 
-.card h3{
-  margin-bottom:15px;
-  color:#ffd700;
+.btn{
+padding:16px 35px;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
 }
 
-.light-mode .card p{
-  color:#222;
+.gold-btn{
+background:#ffd700;
+color:black;
 }
-  </style>
+
+.outline-btn{
+background:transparent;
+border:1px solid #ffd700;
+color:#ffd700;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+/* SECTION */
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:48px;
+margin-bottom:70px;
+}
+
+.section-title span{
+color:#ffd700;
+}
+
+/* SERVICES */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.service-card{
+background:#111827;
+padding:40px 30px;
+border-radius:20px;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(255,215,0,0.15);
+}
+
+.service-card h3{
+margin:20px 0;
+font-size:24px;
+}
+
+.service-card p{
+color:#bbb;
+line-height:1.8;
+}
+
+/* EBOOKS */
+
+.ebook-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.ebook-card{
+background:#111827;
+border-radius:20px;
+overflow:hidden;
+transition:0.4s;
+}
+
+.ebook-card:hover{
+transform:translateY(-10px);
+}
+
+.ebook-card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.ebook-content{
+padding:25px;
+}
+
+.price{
+color:#ffd700;
+font-size:24px;
+margin:15px 0;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.testimonial{
+background:#111827;
+padding:35px;
+border-radius:20px;
+}
+
+.testimonial h3{
+color:#ffd700;
+margin-top:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:#020617;
+padding:60px 8%;
+text-align:center;
+}
+
+footer p{
+color:#aaa;
+margin-top:15px;
+}
+
+/* LIGHT MODE */
+
+.light-mode{
+background:#f5f5f5;
+color:black;
+}
+
+.light-mode .navbar{
+background:rgba(255,255,255,0.8);
+}
+
+.light-mode nav a{
+color:black;
+}
+
+.light-mode .hero{
+background:
+linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),
+url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+}
+
+.light-mode .hero h1{
+color:black;
+}
+
+.light-mode .hero p{
+color:#222;
+}
+
+.light-mode .service-card,
+.light-mode .ebook-card,
+.light-mode .testimonial{
+background:white;
+color:black;
+}
+
+.light-mode .service-card p{
+color:#333;
+}
+
+.light-mode footer{
+background:#e5e5e5;
+color:black;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:42px;
+}
+
+nav{
+display:none;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.section-title{
+font-size:36px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <header class="navbar">
+<header class="navbar">
 
-  <div class="logo">
-    FinanceServiceS
-  </div>
+<div class="logo">
+FinanceServiceS
+</div>
 
-  <nav id="navMenu">
+<nav>
 
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">E-Books</a>
-    <a href="#">Portfolio</a>
-    <a href="#">Contact</a>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">E-Books</a>
+<a href="#">Contact</a>
 
-  </nav>
+</nav>
 
-  <div class="nav-right">
+<div class="right-nav">
 
-   <label class="switch">
+<label class="switch">
 
-  <input type="checkbox" id="themeSwitch">
+<input type="checkbox" id="themeSwitch">
 
-  <span class="slider"></span>
+<span class="slider"></span>
 
 </label>
 
-    <div class="menu-btn" onclick="toggleMenu()">
-      ☰
-    </div>
-
-  </div>
+</div>
 
 </header>
-  <section class="hero">
-    <h1>
-      Empower Your <span>Financial Future</span>
-      With Smart Strategies
-    </h1>
 
-    <p>
-      Learn trading, investing and build multiple income streams
-      with our premium finance services and e-books.
-    </p>
+<section class="hero">
 
-    <div class="buttons">
-      <button class="btn gold">Explore E-Books</button>
-      <button class="btn dark">Our Services</button>
-    </div>
-  </section>
-  
+<div class="hero-content">
 
-  <section class="fade-up">
-    <h2 class="title">Our Services</h2>
+<h1>
+Empower Your
+<span>Financial Future</span>
+With Smart Strategies
+</h1>
 
-    <div class="cards">
+<p>
+Learn trading, investing and wealth building with
+premium finance education and modern financial tools.
+</p>
 
-      <div class="card">
-        <h3>Trading Education</h3>
-        <p>
-          Beginner to advanced trading strategies.
-        </p>
-      </div>
+<div class="hero-buttons">
 
-      <div class="card">
-        <h3>Portfolio Growth</h3>
-        <p>
-          Build long-term wealth with smart investing.
-        </p>
-      </div>
+<button class="btn gold-btn">
+Explore Services
+</button>
 
-      <div class="card">
-        <h3>Premium E-Books</h3>
-        <p>
-          Download premium finance & trading books.
-        </p>
-      </div>
+<button class="btn outline-btn">
+Browse E-Books
+</button>
 
-    </div>
-  </section>
+</div>
 
-  <section>
-
-    <h2 class="title">Top Selling E-Books</h2>
-
-    <div class="cards">
-
-      <div class="card ebook">
-        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop">
-
-        <h3>The Smart Trader</h3>
-
-        <div class="price">₹499</div>
-
-        <button class="btn gold">
-          Buy Now
-        </button>
-      </div>
-
-      <div class="card ebook">
-        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop">
-
-        <h3>Risk Management Secrets</h3>
-
-        <div class="price">₹299</div>
-
-        <button class="btn gold">
-          Buy Now
-        </button>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section>
-
-    <h2 class="title">About Us</h2>
-
-    <div class="about">
-
-      <div>
-        <h2>
-          We Help People Become Financially Strong
-        </h2>
-
-        <p style="margin-top:20px;color:#ccc;line-height:1.8;">
-          FinanceServiceS is a modern finance startup helping
-          people learn trading, investing and financial freedom.
-        </p>
-      </div>
-
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
-
-    </div>
-
-  </section>
-  <section class="fade-up">
-
-  <h2 class="title">
-    What Our Clients Say
-  </h2>
-
-  <div class="cards">
-
-    <div class="card">
-
-      <h3>Rahul Sharma</h3>
-
-      <p>
-        “FinanceServiceS completely changed
-        my understanding of trading and
-        investing. The strategies are simple
-        and practical.”
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>Ahmed Khan</h3>
-
-      <p>
-        “The premium e-books helped me
-        improve my financial discipline and
-        portfolio management.”
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>Priya Verma</h3>
-
-      <p>
-        “Professional platform with luxury UI
-        and valuable finance knowledge.”
-      </p>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-  <section>
+<section>
 
-    <h2 class="title">Contact Us</h2>
+<h2 class="section-title">
+Our <span>Services</span>
+</h2>
 
-    <form>
+<div class="services-grid">
 
-      <input type="text" placeholder="Your Name">
+<div class="service-card">
 
-      <input type="email" placeholder="Your Email">
+<h3>Trading Education</h3>
 
-      <textarea rows="5" placeholder="Message"></textarea>
+<p>
+Master trading psychology, chart analysis and
+professional strategies.
+</p>
 
-      <button class="btn gold">
-        Send Message
-      </button>
+</div>
 
-    </form>
+<div class="service-card">
 
-  </section>
-<a href="https://wa.me/911234567890"
-class="whatsapp">
-  💬
-</a>
-  <footer>
-    © 2026 FinanceServiceS —   All Rights Reserved
-  </footer>
+<h3>Investment Guidance</h3>
+
+<p>
+Build long-term wealth using smart financial planning.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>Financial Freedom</h3>
+
+<p>
+Learn systems and methods to grow multiple income streams.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Premium <span>E-Books</span>
+</h2>
+
+<div class="ebook-grid">
+
+<div class="ebook-card">
+
+<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop">
+
+<div class="ebook-content">
+
+<h3>Trading Mastery</h3>
+
+<p>Complete trading roadmap for beginners.</p>
+
+<div class="price">
+₹499
+</div>
+
+<button class="btn gold-btn">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+<div class="ebook-card">
+
+<img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop">
+
+<div class="ebook-content">
+
+<h3>Investing For Wealth</h3>
+
+<p>Learn wealth building and smart investing.</p>
+
+<div class="price">
+₹299
+</div>
+
+<button class="btn gold-btn">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Client <span>Testimonials</span>
+</h2>
+
+<div class="testimonials">
+
+<div class="testimonial">
+
+<p>
+“FinanceServiceS completely changed my understanding
+of trading and investing.”
+</p>
+
+<h3>
+— Rahul Sharma
+</h3>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+“Premium quality finance education with a modern experience.”
+</p>
+
+<h3>
+— Ahmed Khan
+</h3>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+“Simple strategies with practical implementation.”
+</p>
+
+<h3>
+— Priya Verma
+</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>
+FinanceServiceS
+</h2>
+
+<p>
+Empowering financial growth through modern education.
+</p>
+
+</footer>
+
 <script>
-
-function toggleMenu(){
-  document.getElementById("navMenu")
-  .classList.toggle("active");
-}
-
-/* THEME SWITCH */
 
 const themeSwitch =
 document.getElementById("themeSwitch");
 
 themeSwitch.addEventListener("change", () => {
 
-  document.body.classList.toggle("light-mode");
+document.body.classList.toggle("light-mode");
 
 });
 
-
 </script>
 
-</script>
-
-</body>
 </body>
 </html>
+```
