@@ -283,7 +283,7 @@ margin-top:20px;
 }
 
 /* FOOTER */
-
+ 
 footer{
 background:#020617;
 padding:60px 8%;
@@ -410,12 +410,54 @@ transition:0.4s ease;
 transform:translateY(-12px) scale(1.02);
 box-shadow:0 0 40px rgba(255,215,0,0.2);
 }
+/* CURSOR GLOW */
 
+.cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(circle,
+rgba(255,215,0,0.15),
+transparent 70%);
+border-radius:50%;
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:0;
+transition:transform 0.08s linear;
+}
+
+/* BETTER EBOOK CARDS */
+
+.ebook-card{
+position:relative;
+overflow:hidden;
+}
+
+.ebook-card::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.1),
+transparent
+);
+
+transition:0.8s;
+}
+
+.ebook-card:hover::before{
+left:100%;
+}
 </style>
 
 </head>
 
-<body>
+<body><div class="cursor-glow"></div>
 
 <header class="navbar">
 
@@ -625,7 +667,38 @@ of trading and investing.”
 </div>
 
 </section>
+<section class="reveal">
 
+<h2 class="section-title">
+Community <span>Comments</span>
+</h2>
+
+<div class="testimonial">
+
+<input type="text"
+id="nameInput"
+placeholder="Your Name"
+style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:none;">
+
+<textarea
+id="commentInput"
+placeholder="Write your comment..."
+style="width:100%;padding:15px;height:120px;border-radius:10px;border:none;"></textarea>
+
+<button class="btn gold-btn"
+onclick="addComment()"
+style="margin-top:20px;">
+
+Post Comment
+
+</button>
+
+</div>
+
+<div id="commentList"
+style="margin-top:40px;"></div>
+
+</section>
 <footer>
 
 <h2>
@@ -637,8 +710,53 @@ Empowering financial growth through modern education.
 </p>
 
 </footer>
+```html id="jlwm9q"
+<script type="module">
 
-<script>
+/* FIREBASE */
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+query,
+orderBy
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyB-KEWR59T_llLlpQgrMOZkvxptX2aimlA",
+
+authDomain: "financeservices-fe23e.firebaseapp.com",
+
+projectId: "financeservices-fe23e",
+
+storageBucket: "financeservices-fe23e.firebasestorage.app",
+
+messagingSenderId: "365972966653",
+
+appId: "1:365972966653:web:6ca1cab3b9988cc0e08294",
+
+measurementId: "G-GM64KYZ197"
+
+};
+
+/* INITIALIZE */
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+/* THEME SWITCH */
 
 const themeSwitch =
 document.getElementById("themeSwitch");
@@ -648,6 +766,21 @@ themeSwitch.addEventListener("change", () => {
 document.body.classList.toggle("light-mode");
 
 });
+
+/* CURSOR GLOW */
+
+const glow =
+document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove", (e)=>{
+
+glow.style.left = e.clientX + "px";
+glow.style.top = e.clientY + "px";
+
+});
+
+/* SCROLL ANIMATION */
+
 const reveals =
 document.querySelectorAll(".reveal");
 
@@ -671,9 +804,88 @@ element.classList.add("active");
 
 });
 
-});     
+});
+
+/* FIREBASE COMMENTS */
+
+async function loadComments(){
+
+const commentList =
+document.getElementById("commentList");
+
+commentList.innerHTML = '';
+
+const q =
+query(collection(db, "comments"));
+
+const querySnapshot =
+await getDocs(q);
+
+querySnapshot.forEach((doc) => {
+
+const data = doc.data();
+
+const commentBox =
+document.createElement("div");
+
+commentBox.classList.add("testimonial");
+
+commentBox.style.marginTop = "20px";
+
+commentBox.innerHTML = `
+
+<p>${data.comment}</p>
+
+<h3>— ${data.name}</h3>
+
+`;
+
+commentList.appendChild(commentBox);
+
+});
+
+}
+
+/* ADD COMMENT */
+
+window.addComment =
+async function(){
+
+const name =
+document.getElementById("nameInput").value;
+
+const comment =
+document.getElementById("commentInput").value;
+
+if(name === '' || comment === ''){
+
+alert("Please fill all fields");
+
+return;
+
+}
+
+await addDoc(collection(db, "comments"), {
+
+name:name,
+comment:comment
+
+});
+
+document.getElementById("nameInput").value='';
+
+document.getElementById("commentInput").value='';
+
+loadComments();
+
+}
+
+/* LOAD COMMENTS */
+
+loadComments();
 
 </script>
+```
 
 </body>
 </html>
